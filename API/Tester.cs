@@ -93,7 +93,5 @@ class Program
         {
             Console.WriteLine(parser.Version);
         }
-
-        Console.WriteLine("test");
     }
 }
