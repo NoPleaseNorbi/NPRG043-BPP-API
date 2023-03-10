@@ -11,6 +11,7 @@ namespace Program
             var tester = new Tester();
             tester.testerfunc();
             Console.WriteLine("something else");
+            Console.WriteLine("somethign eevefeeer more else");
         }
     }
 }
