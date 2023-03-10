@@ -10,6 +10,7 @@ namespace Program
         {
             var tester = new Tester();
             tester.testerfunc();
+            Console.WriteLine("something else");
         }
     }
 }
