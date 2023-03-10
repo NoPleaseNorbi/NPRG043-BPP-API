@@ -35,6 +35,7 @@ namespace CLILibrary
         public List<Option> RequiredOptions { get; set; }
         public string Usage { get; set; }
         public string Version { get; set; }
+        
 
         public void AddOption(Option option) 
         {
