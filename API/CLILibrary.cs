@@ -2,50 +2,55 @@
 
 namespace CLILibrary
 {
-    enum Types
+    public enum OptionType
     {
-        BOOL, STRING, INT, LONG, FLOAT, DOUBLE
+        None,
+        String,
+        Integer,
+        Boolean,
+        Enumeration
     }
-    class Tester 
-    {
-        public void testerfunc() 
-        {
-            Console.WriteLine("test working");
-        }
-    }
-    class Parser
-    {
-        string delimiter;
-    }
-    class CommandLine
-    {
-        readonly List<Command> commands;
 
-    }
-    abstract class Command
-    {
-        readonly List<Parameter> options;
-        string Name { get; set; }
-        string Description { get; set; }
-        public abstract void Run();
-
-    }
-    class Parameter
+    public class Option
     {
         public string ShortName { get; set; }
         public string LongName { get; set; }
-        public List<Types> supported = new();
-        public bool IsOptional { get; set; }
-        public Parameter(string shortname, string longname)
+        public string Description { get; set; }
+        public OptionType Type { get; set; }
+        public object DefaultValue { get; set; }
+        public object Value { get; set; }
+        public List<string> Synonyms { get; set; }
+        public bool IsRequired { get; set; }
+        public bool IsFlag { get; set; }
+        public bool IsSet { get; set; }
+        public List<string> AllowedValues { get; set; }
+        public int MinValue { get; set; }
+        public int MaxValue { get; set; }
+    }
+
+    public class CommandLineParser
+    {
+        public List<string> PlainArguments { get; set; }
+        public List<Option> Options { get; set; }
+        public List<Option> RequiredOptions { get; set; }
+        public string Usage { get; set; }
+        public string Version { get; set; }
+
+        public void AddOption(Option option) 
         {
-            ShortName = shortname;
-            LongName = longname;
+            Console.WriteLine("Not Implemented");
         }
-        public void Run<T>(T value)
+        public void Parse(string[] args) 
         {
-
+            Console.WriteLine("Not Implemented");
         }
-
-
+        public string GetOptionValue(string optionName) 
+        {
+            return "Not Implemented";
+        }
+        public bool HasOption(string optionName) 
+        {
+            return true;
+        }
     }
 }
