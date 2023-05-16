@@ -1,0 +1,27 @@
+before_script:
+  - apk add dotnet-sdk-7.0
+  - cd CLILibrary
+
+stages:
+  - build
+  - test_one
+  - test_two
+
+build:
+  stage: build
+  script:
+    - dotnet build
+
+test_one:
+  stage: test_one
+  script:
+    - dotnet test APITests1/APITests1.csproj
+  needs:
+    - build
+
+test_two:
+  stage: test_two
+  script:
+    - dotnet test APITests2/APITests2.csproj
+  needs:
+    - build
